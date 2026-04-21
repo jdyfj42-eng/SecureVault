@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_dark">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/bg_dark"
+        app:navigationIcon="@drawable/ic_back"
+        app:titleTextColor="@color/text_primary"
+        app:menu="@menu/detail_menu"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Header card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="20dp"
+                android:background="@drawable/bg_stat_card"
+                android:layout_marginBottom="14dp">
+
+                <TextView
+                    android:id="@+id/tvCategoryIcon"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:gravity="center"
+                    android:textSize="32sp"
+                    android:background="@drawable/bg_icon_circle"
+                    android:text="🔑"/>
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tvCategory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/accent_purple"
+                        android:background="@drawable/bg_category_chip"/>
+
+                    <TextView
+                        android:id="@+id/tvFavorite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="☆"
+                        android:textSize="22sp"
+                        android:layout_marginStart="12dp"
+                        android:padding="4dp"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Username -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:background="@drawable/bg_card"
+                android:padding="14dp" android:gravity="center_vertical" android:layout_marginBottom="10dp">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Username / Email" android:textSize="11sp" android:textColor="@color/text_hint"/>
+                    <TextView android:id="@+id/tvUsername" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:layout_marginTop="4dp"
+                        android:textSize="14sp" android:textColor="@color/text_primary"/>
+                </LinearLayout>
+                <Button android:id="@+id/btnCopyUsername" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="📋" android:textSize="18sp"
+                    android:background="@null" android:padding="8dp"/>
+            </LinearLayout>
+
+            <!-- Password -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:background="@drawable/bg_card"
+                android:padding="14dp" android:layout_marginBottom="10dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Password" android:textSize="11sp" android:textColor="@color/text_hint"/>
+                        <TextView android:id="@+id/tvPassword" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:layout_marginTop="4dp"
+                            android:text="••••••••••••" android:textSize="20sp"
+                            android:letterSpacing="0.15" android:textColor="@color/text_primary"/>
+                    </LinearLayout>
+                    <Button android:id="@+id/btnTogglePassword" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="Show"
+                        android:textColor="@color/text_secondary" android:background="@null" android:padding="8dp"/>
+                    <Button android:id="@+id/btnCopyPassword" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="📋" android:textSize="18sp"
+                        android:background="@null" android:padding="8dp"/>
+                </LinearLayout>
+                <ProgressBar android:id="@+id/strengthBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent" android:layout_height="4dp"
+                    android:layout_marginTop="10dp" android:max="100"
+                    android:progressBackgroundTint="#1AFFFFFF"/>
+                <TextView android:id="@+id/tvStrength" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:layout_marginTop="4dp"
+                    android:textSize="11sp" android:textStyle="bold"/>
+            </LinearLayout>
+
+            <!-- Website -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:background="@drawable/bg_card"
+                android:padding="14dp" android:layout_marginBottom="10dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Website" android:textSize="11sp" android:textColor="@color/text_hint"/>
+                <TextView android:id="@+id/tvWebsite" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:layout_marginTop="4dp"
+                    android:textSize="14sp" android:textColor="@color/text_primary"/>
+            </LinearLayout>
+
+            <!-- Notes -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:background="@drawable/bg_card"
+                android:padding="14dp" android:layout_marginBottom="10dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Notes" android:textSize="11sp" android:textColor="@color/text_hint"/>
+                <TextView android:id="@+id/tvNotes" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:layout_marginTop="4dp"
+                    android:textSize="14sp" android:textColor="@color/text_primary"/>
+            </LinearLayout>
+
+            <!-- Timestamps -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:background="@drawable/bg_card"
+                android:padding="14dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Created" android:textSize="12sp" android:textColor="@color/text_secondary"/>
+                    <View android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
+                    <TextView android:id="@+id/tvCreated" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:textSize="12sp" android:textColor="@color/text_hint"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginTop="8dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Modified" android:textSize="12sp" android:textColor="@color/text_secondary"/>
+                    <View android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
+                    <TextView android:id="@+id/tvUpdated" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:textSize="12sp" android:textColor="@color/text_hint"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
